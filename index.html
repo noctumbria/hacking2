@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Has Sido Hackeado - Conciencia de Ciberseguridad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .font-courier {
+            font-family: 'Courier Prime', monospace;
+        }
+        .glitch {
+            animation: glitch 1.5s linear infinite;
+        }
+        @keyframes glitch {
+            2%,64% {
+                transform: translate(2px,0) skew(0deg);
+            }
+            4%,60% {
+                transform: translate(-2px,0) skew(0deg);
+            }
+            62% {
+                transform: translate(0,0) skew(5deg);
+            }
+        }
+        .glitch:before,
+        .glitch:after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .glitch:before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        .glitch:after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+            clip: rect(85px, 450px, 90px, 0);
+            animation: glitch-anim-2 5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 62px, 0); }
+            10% { clip: rect(40px, 9999px, 45px, 0); }
+            /* ... more steps ... */
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(2px, 9999px, 98px, 0); }
+            5% { clip: rect(78px, 9999px, 82px, 0); }
+            10% { clip: rect(33px, 9999px, 72px, 0); }
+            /* ... more steps ... */
+        }
+    </style>
+</head>
+<body class="bg-black text-white flex items-center justify-center min-h-screen p-4">
+
+    <div id="main-container" class="w-full max-w-2xl mx-auto text-center">
+
+        <!-- Hacking Simulation Section -->
+        <div id="hacking-section">
+            <div class="mb-6">
+                <!-- SVG Skull Icon -->
+                <svg class="w-24 h-24 mx-auto text-red-500 animate-pulse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 1.5c-5.333 0-9.75 4.31-9.75 9.643 0 5.333 4.417 9.643 9.75 9.643s9.75-4.31 9.75-9.643C21.75 5.81 17.333 1.5 12 1.5zM12 21c-4.14 0-7.5-3.36-7.5-7.5S7.86 6 12 6s7.5 3.36 7.5 7.5S16.14 21 12 21z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 1.5c-5.333 0-9.75 4.31-9.75 9.643 0 5.333 4.417 9.643 9.75 9.643s9.75-4.31 9.75-9.643C21.75 5.81 17.333 1.5 12 1.5zM8.25 9.75a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75zm-1.5 4.5a.75.75 0 01.75-.75h9a.75.75 0 010 1.5h-9a.75.75 0 01-.75-.75zm1.5 3a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75z" />
+                    <path d="M12 12m-1 0a1 1 0 11-2 0 1 1 0 012 0zM15 12m-1 0a1 1 0 11-2 0 1 1 0 012 0z" fill="currentColor" />
+                </svg>
+            </div>
+
+            <h1 id="main-title" class="text-4xl md:text-6xl font-bold text-red-500 mb-4 font-courier glitch" data-text="HAS SIDO HACKEADO">HAS SIDO HACKEADO</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">Tus datos están siendo comprometidos. Iniciando borrado de información...</p>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-gray-700 rounded-full h-6 mb-4 border-2 border-red-500">
+                <div id="progress-bar" class="bg-red-600 h-full rounded-full text-center text-white text-sm transition-all duration-500" style="width: 0%">
+                    <span id="progress-text">0%</span>
+                </div>
+            </div>
+
+            <p id="deleting-text" class="text-green-400 font-courier text-lg h-8"></p>
+        </div>
+
+        <!-- Awareness Section (Initially Hidden) -->
+        <div id="awareness-section" class="hidden">
+             <h2 class="text-4xl md:text-5xl font-bold text-cyan-400 mb-4">Respira. Estás a salvo.</h2>
+             <p class="text-lg md:text-xl text-gray-300 mb-6">
+                Esto fue solo una <span class="font-bold text-yellow-400">simulación</span>. Pero el riesgo es real. Cada día, miles de personas pierden sus datos, sus fotos y su tranquilidad por ataques cibernéticos.
+             </p>
+             <div class="bg-gray-900 border border-cyan-400 rounded-lg p-6 text-left">
+                <h3 class="text-2xl font-bold text-white mb-4">¿Cómo puedes protegerte?</h3>
+                <ul class="list-disc list-inside space-y-3 text-gray-300">
+                    <li><span class="font-bold text-cyan-400">Contraseñas Fuertes:</span> Usa combinaciones de letras, números y símbolos. No repitas la misma contraseña en diferentes sitios.</li>
+                    <li><span class="font-bold text-cyan-400">Autenticación de Dos Factores (2FA):</span> Actívala siempre que sea posible. Es una capa extra de seguridad crucial.</li>
+                    <li><span class="font-bold text-cyan-400">Cuidado con el Phishing:</span> No hagas clic en enlaces ni descargues archivos de correos electrónicos o mensajes sospechosos.</li>
+                    <li><span class="font-bold text-cyan-400">Mantén tu Software Actualizado:</span> Las actualizaciones a menudo incluyen parches de seguridad importantes.</li>
+                    <li><span class="font-bold text-cyan-400">Respalda tu Información:</span> Realiza copias de seguridad de tus datos importantes regularmente.</li>
+                </ul>
+             </div>
+             <p class="mt-6 text-gray-400">Comparte esta página y ayuda a crear conciencia.</p>
+        </div>
+    </div>
+
+    <script>
+        // --- DOM Elements ---
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const deletingText = document.getElementById('deleting-text');
+        const hackingSection = document.getElementById('hacking-section');
+        const awarenessSection = document.getElementById('awareness-section');
+        const mainTitle = document.getElementById('main-title');
+
+        // --- Simulation Data ---
+        const filesToDelete = [
+            "Buscando vulnerabilidades...",
+            "Acceso concedido.",
+            "Iniciando borrado de datos...",
+            "Borrando fotos familiares...",
+            "Eliminando archivos de trabajo...",
+            "Accediendo a cuentas bancarias...",
+            "Borrando historial de navegación...",
+            "Comprometiendo redes sociales...",
+            "Eliminando copias de seguridad...",
+            "Formateando disco duro...",
+            "Borrado completado."
+        ];
+
+        let currentProgress = 0;
+        let fileIndex = 0;
+
+        // --- Simulation Logic ---
+        function startSimulation() {
+            // Interval to update the progress bar and text
+            const interval = setInterval(() => {
+                currentProgress += Math.floor(Math.random() * 5) + 4; // Increase by a random amount
+                
+                if (currentProgress >= 100) {
+                    currentProgress = 100;
+                    progressBar.style.width = '100%';
+                    progressText.textContent = '100%';
+                    deletingText.textContent = filesToDelete[filesToDelete.length - 1];
+                    clearInterval(interval);
+                    // Wait a bit before showing the reveal
+                    setTimeout(showAwarenessMessage, 2000);
+                } else {
+                     // Update progress bar
+                    progressBar.style.width = currentProgress + '%';
+                    progressText.textContent = currentProgress + '%';
+
+                    // Update the "deleting" text message
+                    if (fileIndex < filesToDelete.length -1) {
+                         const progressPerFile = 100 / (filesToDelete.length - 2);
+                         if (currentProgress > progressPerFile * fileIndex) {
+                            deletingText.textContent = filesToDelete[fileIndex];
+                            fileIndex++;
+                         }
+                    }
+                }
+            }, 800); // Update every 0.8 seconds
+        }
+
+        // --- Reveal Logic ---
+        function showAwarenessMessage() {
+            hackingSection.classList.add('transition-opacity', 'duration-1000', 'opacity-0');
+            
+            // After fade out, hide it and show the awareness section
+            setTimeout(() => {
+                hackingSection.classList.add('hidden');
+                awarenessSection.classList.remove('hidden');
+                awarenessSection.classList.add('transition-opacity', 'duration-1000', 'opacity-100');
+                document.body.classList.remove('bg-black');
+                document.body.classList.add('bg-gray-900'); // Change background to something less alarming
+            }, 1000);
+        }
+
+        // --- Start the simulation on page load ---
+        window.onload = function() {
+            // A small delay to let the user read the initial message
+            setTimeout(startSimulation, 1500);
+        };
+    </script>
+
+</body>
+</html>
